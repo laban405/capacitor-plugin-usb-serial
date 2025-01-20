@@ -20,6 +20,7 @@ buildscript {
 apply plugin: 'com.android.library'
 
 android {
+    namespace "com.viewtrak.plugins.usbserial"
     compileSdkVersion 34
     defaultConfig {
         minSdkVersion 22 
