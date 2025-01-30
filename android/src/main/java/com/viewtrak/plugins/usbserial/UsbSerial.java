@@ -158,7 +158,7 @@ public class UsbSerial implements SerialInputOutputManager.Listener {
             UsbDeviceConnection usbConnection = usbManager.openDevice(driver.getDevice());
             if(usbConnection == null && usbPermission == UsbPermission.Unknown && !usbManager.hasPermission(driver.getDevice())) {
                 usbPermission = UsbPermission.Requested;
-                PendingIntent usbPermissionIntent = PendingIntent.getBroadcast(this.mActivity, 0, new Intent(USB_PERMISSION), 0);
+                PendingIntent usbPermissionIntent = PendingIntent.getBroadcast(this.mActivity, 0, new Intent(USB_PERMISSION), PendingIntent.FLAG_IMMUTABLE);
                 this.mActivity.registerReceiver(broadcastReceiver, new IntentFilter(USB_PERMISSION));
                 usbManager.requestPermission(driver.getDevice(), usbPermissionIntent);
                 return;
